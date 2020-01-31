@@ -53,15 +53,13 @@ $message="";
 		}
 		else 
 		{
-		echo $sql;
+		//echo $sql;
 		?>
 		
-<!--
 		<script type="text/javascript">
 			alert("Flat No Already Register");
 			window.location.href="Flat_Entry.php";
 </script>
--->
 <?php	
 			header('Location: '.$redirect);
 			
@@ -95,7 +93,7 @@ $message="";
     <link rel="apple-touch-icon" sizes="76x76" href="../app-assets/img/ico/apple-icon-76.html">
     <link rel="apple-touch-icon" sizes="120x120" href="../app-assets/img/ico/apple-icon-120.html">
     <link rel="apple-touch-icon" sizes="152x152" href="../app-assets/img/ico/apple-icon-152.html">
-    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/ico/favicon.ico">
+   <link rel="shortcut icon" type="image/x-icon" href="../app-assets/img/titleBarimg/title.png">
     <link rel="shortcut icon" type="image/png" href="../app-assets/img/ico/favicon-32.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -146,7 +144,7 @@ $message="";
 									<div class="col-xl-2 col-lg-6 col-md-6">
 										<fieldset class="form-group">
 											<label for="basicSelect">Block</label>
-											<select class="form-control" id="ddlBlock" name="ddlBlock" required>
+											<select class="form-control round" id="ddlBlock" name="ddlBlock" required>
 											  <option>Select Block</option>
 											  <option>A</option>
 											  <option>B</option>

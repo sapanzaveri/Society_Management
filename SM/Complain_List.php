@@ -23,6 +23,30 @@ if(isset($_GET['did']))
 
 	}
 	}
+if(isset($_GET['updateid']))
+{
+	$UID = $_GET['updateid'];
+	$date = date('y-m-d');
+	$sql = "Update complaint_master set IsActive=0 , DOR='" . $date . "'";
+	$sql .= " where Id=" . $UID;
+
+	$res = mysqli_query($link,$sql);
+		if($res)
+			{
+	echo'<script type="text/javascript">
+			alert("Complain Updation Done");
+			window.location.href="Complain_list.php";
+</script>';
+			}
+				else
+		{
+		echo '<script type="text/javascript">
+			alert("Complaint Updation Failed ");
+			window.location.href="Complain_list.php";
+</script>';
+
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" class="loading">
@@ -40,7 +64,7 @@ if(isset($_GET['did']))
     <link rel="apple-touch-icon" sizes="76x76" href="../app-assets/img/ico/apple-icon-76.html">
     <link rel="apple-touch-icon" sizes="120x120" href="../app-assets/img/ico/apple-icon-120.html">
     <link rel="apple-touch-icon" sizes="152x152" href="../app-assets/img/ico/apple-icon-152.html">
-    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/img/titleBarimg/title.png">
     <link rel="shortcut icon" type="image/png" href="../app-assets/img/ico/favicon-32.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -76,8 +100,10 @@ if(isset($_GET['did']))
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title-wrap bar-success">
-                        <h4 class="card-title">Complaint List</h4>
+                    <div class="card-title-wrap bar-success"> 
+						<h4 class="card-title">Complaint List  </h4>   
+                    <a href="Complain_Entry.php"> <button type="submit" class="btn btn-success">Enter New Complain </button>   
+                    </a>
                     </div>
                 </div>
                 <div class="card-body collapse show">
@@ -89,7 +115,8 @@ if(isset($_GET['did']))
                             <thead>
                                 <tr>
                                 <th>Description</th>
-                               	<th>DOC</th>                                
+                               	<th>DOC</th>   
+                                                         
                                 <th>Edit</th>
                                 <th>Status</th>
            			     		</tr>
@@ -98,15 +125,20 @@ if(isset($_GET['did']))
                               
                               <?php
 							$sql = "SELECT * FROM `complaint_master`";
+							$sql .= " where By_Whom=".$_SESSION['UID'];
+							$sql .= " OR SendTo=6";
 							$res = mysqli_query($link,$sql);
 							while($row = mysqli_fetch_array($res))
 							{
 							echo '<tr>';
 							echo '<td>' . $row['Description'] . '</td>';
 							echo '<td>' . $row['DOC'] . '</td>';	
+							if($row["IsActive"]==1)
+							{
+								echo '<td ><a href="Complain_Entry.php?cid=' . $row['Id'] . '" ><i class="fa fa-edit " style="font-size:2.5em;"></i></a></td>';	
+							}
 							
-							echo '<td ><a href="Complain_Entry.php?cid=' . $row['Id'] . '" ><i class="fa fa-edit " style="font-size:2.5em;"></i></a></td>';	
-							echo '<td >';
+							echo '<td colspan="2" align="center">';
 								if($_SESSION['RID']!='1') 
 									{
 										if($row["IsActive"]==1)
@@ -115,15 +147,21 @@ if(isset($_GET['did']))
 										}
 										else
 										{
-											echo '<label>sovled</label>';
+											echo '<label>Sovled on Date:-' . $row['DOR'] . '</label>';
 										}
 									}
 								else
 									{
+										if($row["IsActive"]==1)
+										{
 									?>
-										
-										<input type="checkbox" name="is_active" style="zoom:3" <?php if($row["IsActive"]==1) echo "Checked=checked "; ?>>
-									<?php
+											<input type="checkbox" onClick="javascript:updaterec(<?php echo $row['Id'] ?>);" name="is_active" style="zoom:3" <?php if($row["IsActive"]==1) echo "Checked=checked "; ?>>
+								<?php
+										}
+										else 
+										{
+											echo '<label>Sovled on Date:-' . $row['DOR'] . '</label>';
+										}
 									}
 							
 								echo '</td>';
@@ -171,10 +209,12 @@ if(isset($_GET['did']))
 	<!---- Record Delete Script ------>  
 	  
 	  
+<!--
 	  <script type="text/javascript">
     	function deleteconfig(tmp)
     			{
-				var x = confirm("Are you sure you want to delete?");
+				var temp = tmp;
+				var x = confirm("Are you sure you want to delete? " + temp + "Value");
 				if (x==true)
 				{
 			  	window.location="Complain_list.php?did=" + tmp;
@@ -186,6 +226,24 @@ if(isset($_GET['did']))
 				}
     			}
 	</script>
+
+   
+-->
+    
+ <script type="text/javascript">
+    function updaterec(tmp) {
+		var temp = tmp;
+	 var x = confirm("Are you Sure the Complain is Resolved ");
+		if (x==true)
+		{
+    	window.location="Complain_list.php?updateid=" + tmp;
+		}
+		else
+		{
+			window.location="Complain_list.php";
+		}
+	}
+</script>
     
     <!-- BEGIN VENDOR JS-->
     <script src="../app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>

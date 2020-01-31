@@ -8,24 +8,25 @@ $message="";
 	if(isset($_POST['btnSubmit']))
 	{
 		$complaint=($_POST['description']);
-		
+		$chk_admin = ($_POST['chk_admin']);
 		$hdnId = $_POST['hdnId'];
 		if($hdnId==0)
 		{
-		$sql = "INSERT INTO `complaint_master`(`Description`, `By_Whom`, `DOC` , `IsActive` ) VALUES ";
-		$sql .= "('$complaint',' " .$_SESSION['UID'] ." ','". date('y-m-d') . "', '1')";
+		$sql = "INSERT INTO `complaint_master`(`Description`, `By_Whom`,`SendTo`, `DOC` , `IsActive` ) VALUES ";
+		$sql .= "('$complaint',' " .$_SESSION['UID'] ." ','$chk_admin','". date('y-m-d') . "', '1')";
 		 
 		
 		}
 		else
 		{
 			$sql="Update complaint_master set";
-			$sql .= " Description='$complaint', ";
-			$sql .= " DOC='$doc' ";
+			$sql .= " Description='$complaint' ";
+			
 			$sql .= " Where Id=" . $hdnId;
 			$redirect ='Complain_list.php';
 		}
 		$resultset=mysqli_query($link,$sql);
+		
 		if($resultset)
 		{
 		?>
@@ -74,7 +75,7 @@ if(isset($_GET['cid']))
     <link rel="apple-touch-icon" sizes="76x76" href="../app-assets/img/ico/apple-icon-76.html">
     <link rel="apple-touch-icon" sizes="120x120" href="../app-assets/img/ico/apple-icon-120.html">
     <link rel="apple-touch-icon" sizes="152x152" href="../app-assets/img/ico/apple-icon-152.html">
-    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/app-assets/img/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/img/titleBarimg/title.png">
     <link rel="shortcut icon" type="image/png" href="../app-assets/img/ico/favicon-32.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -128,12 +129,22 @@ if(isset($_GET['cid']))
 											<textarea class="form-control round" rows="3" name="description" placeholder="Enter Description"><?php if($Id<>0) echo $row['Description'] ?></textarea>
 										</div>
 									</div>
+									<div class="row">
 									<div class="col-md-4">
-										<div class="form-group">
+										 <div class="form-group">
 											<label>Date of Complaint</label>
-											<label id="doc" class="form-control round" name="doc" ><?php if($Id<>0) echo $row['DOC']; else  echo date('y-m-d') ?></label>
+											<label id="doc" class="form-control round" name="doc" ><?php if($Id<>0) echo $row['DOC']; else  echo date('yy-m-d') ?></label>
+										</div>
+								</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<div class="col-md-4">
+										<div class="form-group">
+											<label>Send To</label> <br/>
+											 <input type="checkbox" style="width:20px;height:20px;" name="chk_admin" id="chk_admin"  value="6" <?php if($Id<>0 && $row['IsActive']==1) echo "Checked=checked ";?>>&nbsp;&nbsp;Admin
 										</div>
 									</div>
+								
+									</div>
+									
 									
 							</div>
 

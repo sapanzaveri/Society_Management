@@ -227,11 +227,11 @@ function getExtension($str)
 
 
      
-      <?php include "sidebar.php" ?>
+      <?php include "SideBar.php" ?>
        
 
 
-      <?php include "header.php" ?>
+      <?php include "Header.php" ?>
 
        <div class="main-panel">
         <div class="main-content">
@@ -360,10 +360,7 @@ function getExtension($str)
 										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<label>Address</label>
-									<textarea id="address" rows="3" class="form-control round" name="address" placeholder="Enter Member Address" ><?php if($Id<>0) echo $row['Address']; ?></textarea>
-								</div>
+								
 								
 								<div class="row">
 									<div class="col-md-4">
@@ -454,10 +451,10 @@ function getExtension($str)
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     
-    
+     <?php include "Aside.php" ?>
 
-    <?php include "rightsidebar.php" ?>
-    <?php include "setting.php" ?>
+    <?php include "ThemeSideBar.php" ?>
+  
     
     <!-- BEGIN VENDOR JS-->
     <script src="../app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>

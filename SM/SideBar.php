@@ -21,7 +21,7 @@
                  
                 </ul>
               </li>
-              <li class="has-sub nav-item"><a href="#"><i class="icon-home"></i><font size="1.6">Flat Management</font></a>
+              <li class="has-sub nav-item"><a href="#"><i class="ft-home"></i><font size="1.6">Flat Management</font></a>
                 <ul class="menu-content">
                   <li><a href="Flat_Entry.php" class="menu-item">Flat Entry</a>
                   </li>
@@ -31,51 +31,64 @@
                 </ul>
               </li>
               
-              <li class="has-sub nav-item"><a href="#"><i class="ft-camera"></i><font size="1.6">Event Management</font></a>
+              <li class="has-sub nav-item"><a href="#"><i class="ft-camera"></i><font size="1.6">Event</font></a>
                 <ul class="menu-content">
                   <li><a href="Event_Entry.php" class="menu-item">Event Entry</a>
+                  </li>
+                  <li><a href="Event_gallery.php" class="menu-item">Event Gallery Entry</a>
                   </li>
                   <li><a href="Event_List.php" class="menu-item">Event List</a>
                   </li>
                  
+                  <li><a href="Event_GalleryList.php" class="menu-item">Event Gallery View</a>
+                  </li>
                 </ul>
               </li>
-              <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><font style="font-size: 9px">Event  Management</font></a>
-                <ul class="menu-content">
-                  <li><a href="Event_gallery.php" class="menu-item">Event Gallery Entry</a>
-                  </li>
-                  <li><a href="Event_GalleryList.php" class="menu-item">Event Gallery</a>
-                  </li>
-                 
-                </ul>
-              </li>
+              
     
-              <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><font size="1.6">Meeting Management</font></a>
+              <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><font size="1.6">Meetings</font></a>
                 <ul class="menu-content">
+                 <li><a href="MOM_View.php" class="menu-item">MOM View</a>
+                  </li>
                   <li><a href="Meeting_Entry.php" class="menu-item">Meeting Entry</a>
+                  </li>
+                  <li><a href="MOM.php" class="menu-item">MOM Entry</a>
                   </li>
                   <li><a href="Meeting_List.php" class="menu-item">Meeting List</a>
                   </li>
-                 
-                </ul>
-              </li>
-              <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><font size="1.6">MOM Management</font></a>
-                <ul class="menu-content">
-                  <li><a href="MOM.php" class="menu-item">MOM Entry</a>
-                  </li>
                   <li><a href="MOM_List.php" class="menu-item">MOM List</a>
-                  </li>
-                  <li><a href="MOM_View.php" class="menu-item">MOM View</a>
                   </li>
                  
                 </ul>
               </li>
               
+              <li class="has-sub nav-item"><a href="#"><i class="icon-envelope-letter"></i><font size="1.6">Documents</font></a>
+                <ul class="menu-content">
+                  <li><a href="Doctype_Entry.php" class="menu-item">Document Type Entry</a>
+                  </li>
+                  <li><a href="DocType_List.php" class="menu-item">Document Type List</a>
+                  </li>
+                 
+                </ul>
+              </li>
+              
+              
+              <li class="has-sub nav-item"><a href="#"><i class="icon-question"></i><font size="1.6">Complain </font></a>
+                <ul class="menu-content">
+                  <li><a href="Complain_Entry.php" class="menu-item">Complain Entry</a>
+                  </li>
+                  <li><a href="Complain_List.php" class="menu-item">Complain List</a>
+                  </li>
+                 
+                </ul>
+              </li>
+              
+              
               <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><font style="font-size: 9px">Ownership Management</font></a>
                 <ul class="menu-content">
-                  <li><a href="Flat_Entry.php" class="menu-item">Ownership Entry</a>
+                  <li><a href="Ownership_Entry.php" class="menu-item">Ownership Entry</a>
                   </li>
-                  <li><a href="Flat_list.php" class="menu-item">Ownership List</a>
+                  <li><a href="Ownership_List.php" class="menu-item">Ownership List</a>
                   </li>
                  
                 </ul>
@@ -89,15 +102,7 @@
                  
                 </ul>
               </li>
-              <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><font style="font-size: 9px">Document Management</font></a>
-                <ul class="menu-content">
-                  <li><a href="Doctype_Entry.php" class="menu-item">Document Type Entry</a>
-                  </li>
-                  <li><a href="DocType_List.php" class="menu-item">Document Type List</a>
-                  </li>
-                 
-                </ul>
-              </li>
+              
               <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><font style="font-size: 9px">Function Management</font></a>
                 <ul class="menu-content">
                   <li><a href="Function_Entry.php" class="menu-item">Function Entry</a>
